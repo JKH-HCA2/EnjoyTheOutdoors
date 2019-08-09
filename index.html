@@ -17,15 +17,42 @@
 <body>
 	<main>
 		<div class="row">
-			<div class="col-md border border-danger rounded-lg tableDisplay">
-				<select id="parkSelector" class="custom-select">
-				</select>
-				<table class="table" id="parks">
+			<div class="col-md border border-primary rounded-lg ">
+
+				<!-- Search form selection start -->
+				<form class="tableDisplay">
+					<h1 class="display-4 text-center">National Park Search</h1>
+					<p>Search by:</p>
+					<div class="btn-group btn-group-toggle" data-toggle="buttons">
+						<label class="btn btn-secondary active">
+							<input onchange="dropdownSwitch()" type="radio" class="radioSelector" name="options" id="location"
+								autocomplete="off" checked> Location
+						</label>
+						<label class="btn btn-secondary">
+							<input onchange="dropdownSwitch()" type="radio" class="radioSelector" name="options" id="parkType"
+								autocomplete="off"> Park Type
+						</label>
+					</div>
+					<button type="button" id="search" class="btn btn-primary float-right">Search</button>
+					<select id="locationSelector" class="custom-select">
+						<option value="choose a location" selected disabled>-- Choose a Location --</option>
+					</select>
+					<select id="parkTypeSelector" class="custom-select">
+						<option value="choose a park type" selected disabled>-- Choose a Park Type --</option>
+					</select>
+				</form>
+
+				<!-- Park Display Table -->
+				<table class="table border" id="parks">
 					<tr>
-						<th>Name</th>
-						<th>Elevation</th>
-						<th>Effort</th>											
-					</tr>					
+						<th>Location</th>
+						<th>Address</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Zip Code</th>
+						<th>Phone Number</th>
+						<th>Coordinates</th>
+					</tr>
 				</table>
 			</div>
 		</div>
@@ -36,13 +63,13 @@
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="scripts/getJSON.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
 		crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<script src="scripts/parks.js"></script>
 </body>
 
 </html>
