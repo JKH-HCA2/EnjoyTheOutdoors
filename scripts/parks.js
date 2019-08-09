@@ -29,7 +29,13 @@ window.onload = function()
             getHeadRow(table);
             getParkTypeSearch(table, objs);
         }
-        
+    }
+    const dispBtn = document.getElementById("displayAll")
+    dispBtn.onclick = function()
+    {
+        parks.innerHTML = "";
+        getHeadRow(table);
+        displayAll(table, objs)
     }
 }
 
@@ -294,6 +300,30 @@ function getParkTypeSearch(table, objs)
             let cell7 = row.insertCell(6);            
             cell7.innerHTML = objs.parks[i].Latitude + ", " + objs.parks[i].Longitude
         }
+    }
+}
+
+function displayAll(table, objs)
+{
+    let len = objs.parks.length
+    for (let i = 0;i < len; i++)
+    {
+        let row = table.insertRow(table.rows.length);
+
+        let cell1 = row.insertCell(0);
+        cell1.innerHTML = objs.parks[i].LocationName;
+        let cell2 = row.insertCell(1);
+        cell2.innerHTML = objs.parks[i].Address;
+        let cell3 = row.insertCell(2);
+        cell3.innerHTML = objs.parks[i].City;
+        let cell4 = row.insertCell(3);
+        cell4.innerHTML = objs.parks[i].State;
+        let cell5 = row.insertCell(4);
+        cell5.innerHTML = objs.parks[i].ZipCode;
+        let cell6 = row.insertCell(5);
+        cell6.innerHTML = objs.parks[i].Phone;
+        let cell7 = row.insertCell(6);
+        cell7.innerHTML = objs.parks[i].Latitude + ", " + objs.parks[i].Longitude
     }
 }
 
