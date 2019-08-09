@@ -1,11 +1,19 @@
 "use strict";
 
+
+/*
+*
+* Function: Onload function populates the dropdown selectors and connects javascript functions
+* to HTML button elements
+*
+* @param objs (JSON Array) - data file used to populate the tables on the page
+* @param
+*
+*/
 window.onload = function()
 {
     getLocDropDown();
     getParkDropDown();
-
-
 
     let objs;
     $.getJSON("data/nationalparks.json", 
